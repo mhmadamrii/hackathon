@@ -1,0 +1,21 @@
+.container {
+    /* border: 1px solid; */
+    margin: 10vh auto;
+    width: 800px;
+}
+
+.container button {
+    margin-bottom: 15px;
+}
+
+.imageSection {
+    display: flexbox;
+    flex-wrap: wrap;
+}
+
+.imageSection img {
+    margin: 10px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

@@ -18,3 +18,8 @@
 .row button {
     padding: 10px 60px;
 }
+
+.details {
+    /* border: 1px solid; */
+    color: aliceblue;
+}

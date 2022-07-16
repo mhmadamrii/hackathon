@@ -1,0 +1,19 @@
+.container {
+    margin: auto;
+}
+
+.main img {
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: block;
+}
+
+.explore {
+    display: flex;
+    /* border: 1px solid; */
+    margin: 10px 20px 0 20px;
+    padding: 10px;
+    justify-content: space-between;
+}
+

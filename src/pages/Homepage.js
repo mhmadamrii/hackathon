@@ -22,6 +22,10 @@ const Homepage = () => {
                         <img src={Bali} alt='image' />
                     </Col>
                 </Row>
+
+                <div className={styles.details}>
+                    <center><h2>Keindahan alam di bumi pertiwi</h2></center>
+                </div>
             </Container>
             {/* <Login /> */}
         </>

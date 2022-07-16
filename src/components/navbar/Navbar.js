@@ -6,7 +6,6 @@ import styles from '../../css/login.module.css';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-
 // integration
 import {API} from '../../config/api';
 import { useMutation } from 'react-query';
@@ -36,13 +35,6 @@ function NavScrollExample() {
         email: '',
         password: ''
     });
-
-    const [register, setRegister] = useState({
-        name: '',
-        email: '',
-        password: ''
-    });
-
     const handleOnChange = (e) => {
         setForm({
             ...form, [e.target.name]: e.target.value,
@@ -51,6 +43,25 @@ function NavScrollExample() {
     };
 
 
+    const [register, setRegister] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    const handleOnChangeRegister = (e) => {
+        setRegister({
+            ...register, [e.target.name]: e.target.value,
+        })
+        console.log(e.target.value)
+    }
+
+    const logout = () => {
+        dispatch({
+            type: "logOut",
+        });
+        navigate("/");
+    };
 
     const handleOnLogin = useMutation (async (e) => {
         try {
@@ -63,19 +74,20 @@ function NavScrollExample() {
 
             const body = JSON.stringify(form);
             const response = await API.post('/login', body, config);
-            const userStatus = response.data.data.status;
+            const userStatus = response.data.data.user.role;
             console.log(response.data);
             console.log("successfully logged in as an " + userStatus);
 
 
             dispatch ({
                 type: 'loginSuccess',
-                payload: response.data.data
+                payload: response.data.data.user
             });
 
 
             if(userStatus === "user") {
                 navigate('/')
+                window.location.reload();
             } else if (userStatus === 'admin') {
                 navigate('/dashboard')
             }
@@ -107,9 +119,21 @@ function NavScrollExample() {
                 }
             };
 
-            const body = JSON.stringify(form);
+            const body = JSON.stringify(register);
             const response = await API.post('/register', body, config);
             console.log(response.data)
+            setRegister({
+                name: '',
+                email: '',
+                password: '',
+            })
+
+            const alert = (
+                <Alert variant="success" className="py-1">
+                    Success
+                </Alert>
+            );
+            setMessage(alert)
 
         } catch (error) {
             console.log(error);
@@ -137,12 +161,20 @@ function NavScrollExample() {
                         <Nav.Link href="/explore">Explore</Nav.Link>
                     </Nav>
                     <Nav>
-                        <button 
-                        onClick={toggleModal} style={{border: 'none', backgroundColor: 'inherit', padding: '0 20px'}}>
-                        Login</button>                    
-                        <button 
-                        onClick={toggleRegister} style={{border: 'none', backgroundColor: 'inherit', padding: '0 20px'}}>
-                        Register</button>                    
+                        {state.isLogin === false ? (
+                            <>
+                                <button 
+                                onClick={toggleModal} style={{border: 'none', backgroundColor: 'inherit', padding: '0 20px'}}>
+                                Login</button>                    
+                                <button 
+                                onClick={toggleRegister} style={{border: 'none', backgroundColor: 'inherit', padding: '0 20px'}}>
+                                Register</button>                    
+                            </>
+                        ) : (
+                            <button 
+                                onClick={logout} style={{border: 'none', backgroundColor: 'inherit', padding: '0 20px'}}>
+                                Logout</button>                    
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -155,10 +187,11 @@ function NavScrollExample() {
                         </div>
                         <div className={styles.root}>
                             <h3>Login</h3>
-
+                            <form
+                            onSubmit={(e) => handleOnLogin.mutate(e)}>
                             <Form.Group className="mb-3" controlId="formBasicEmail"
-                            onSubmit={(e) => handleOnLogin.mutate(e)}
                             >
+                                {message && message}
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control 
                                 type="email" 
@@ -182,6 +215,7 @@ function NavScrollExample() {
                                 Have not an account? click <a href="">Here</a>  
                             </Form.Text>                        
                             </center>
+                            </form>
                         </div>
                     </div>            
                 )}
@@ -194,15 +228,17 @@ function NavScrollExample() {
                     </div>
                     <div className={styles.root}>
                         <h3>Register</h3>
+                        <form
+                        onSubmit={(e) => handleOnRegister.mutate(e)}>
                         <Form.Group className="mb-3" controlId="formBasicEmail" 
-                        onSubmit={(e) => handleOnRegister.mutate(e)}
                         >
+                            {message && message}
                             <Form.Label>Fullname</Form.Label>
                             <Form.Control 
                             type="text" 
-                            onChange={handleOnChange}
-                            value={form.fullname}
-                            name='fullname'
+                            onChange={handleOnChangeRegister}
+                            value={register.name}
+                            name='name'
                             placeholder="Enter name"
                             />
                         </Form.Group>
@@ -210,8 +246,8 @@ function NavScrollExample() {
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
                             type="email" 
-                            onChange={handleOnChange}
-                            value={form.email}
+                            onChange={handleOnChangeRegister}
+                            value={register.email}
                             name='email'
                             placeholder="Enter email" />
                         </Form.Group>
@@ -219,15 +255,17 @@ function NavScrollExample() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control 
                             type="password" 
-                            onChange={handleOnChange}
-                            value='password'
+                            onChange={handleOnChangeRegister}
+                            value={register.password}
+                            name='password'
                             placeholder="Password" />
                         </Form.Group>
                         <Button variant="primary" type="submit">Submit</Button>
                         <center><Form.Text className="text-muted">
                             Already have an account? click <a href="">Here</a>  
-                        </Form.Text>                        
+                        </Form.Text>    
                         </center>
+                        </form>                    
                     </div>
                 </div>      
                 )}

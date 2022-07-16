@@ -1,0 +1,32 @@
+.imageSection {
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid; */
+    justify-content: center;
+    margin: auto;
+}
+
+.imageSection img {
+    width: 100%;
+    margin: 10px;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    height: 200px;
+    cursor: pointer;
+}
+
+
+.cardImage {
+    /* border: 1px solid red; */
+    padding: 10px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 10px;
+    height: 400px;
+}
+
+.cardImage span {
+    color: #858080ef;
+}
