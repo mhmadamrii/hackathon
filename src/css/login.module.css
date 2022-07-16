@@ -1,0 +1,30 @@
+.main {
+    width: 100vw;
+    height: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(0,0,0,0.5);
+}
+
+.root {
+    width: 500px;
+    border: 1px solid;
+    padding: 20px;
+    margin: -45vh auto;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.root button {
+    width: 100%;
+}
+
+.close {
+    /* border: 1px solid red; */
+    height: 30%;
+}
