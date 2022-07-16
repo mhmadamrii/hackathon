@@ -13,6 +13,7 @@ import { useMutation } from 'react-query';
 import { UserContext } from '../../components/context/UserContext'
 
 function NavScrollExample() {
+    const navigate = useNavigate();
     // modal login
     const [modalLogin, setModalLogin] = useState(false)
     const toggleModal = () => {
@@ -29,7 +30,15 @@ function NavScrollExample() {
     console.log(state);
 
     const [message, setMessage] = useState(null);
+
+    // register & login states
     const [form, setForm] = useState({
+        email: '',
+        password: ''
+    });
+
+    const [register, setRegister] = useState({
+        name: '',
         email: '',
         password: ''
     });
@@ -42,7 +51,6 @@ function NavScrollExample() {
     };
 
 
-    const navigate = useNavigate();
 
     const handleOnLogin = useMutation (async (e) => {
         try {
@@ -86,6 +94,31 @@ function NavScrollExample() {
             )
             setMessage(alert);
             console.log(error.response.data.message)
+        }
+    })
+
+    const handleOnRegister = useMutation (async (e) => {
+        try {
+            e.preventDefault();
+
+            const config = {
+                headers: {
+                    'Content-type': 'application/json',
+                }
+            };
+
+            const body = JSON.stringify(form);
+            const response = await API.post('/register', body, config);
+            console.log(response.data)
+
+        } catch (error) {
+            console.log(error);
+            const alert = (
+                <Alert variant="danger" className="py-1">
+                    Failed 
+                </Alert>
+            );
+            setMessage(alert);
         }
     })
     
@@ -161,17 +194,34 @@ function NavScrollExample() {
                     </div>
                     <div className={styles.root}>
                         <h3>Register</h3>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicEmail" 
+                        onSubmit={(e) => handleOnRegister.mutate(e)}
+                        >
                             <Form.Label>Fullname</Form.Label>
-                            <Form.Control type="text" placeholder="Enter name" />
+                            <Form.Control 
+                            type="text" 
+                            onChange={handleOnChange}
+                            value={form.fullname}
+                            name='fullname'
+                            placeholder="Enter name"
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control
+                            type="email" 
+                            onChange={handleOnChange}
+                            value={form.email}
+                            name='email'
+                            placeholder="Enter email" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control 
+                            type="password" 
+                            onChange={handleOnChange}
+                            value='password'
+                            placeholder="Password" />
                         </Form.Group>
                         <Button variant="primary" type="submit">Submit</Button>
                         <center><Form.Text className="text-muted">
