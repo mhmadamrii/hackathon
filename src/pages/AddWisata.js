@@ -99,7 +99,7 @@ const AddWisata = () => {
                     placeholder="e.g: Jawa Barat" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Foto Wisata</Form.Label>
                     <input 
                     type="file"
@@ -107,7 +107,7 @@ const AddWisata = () => {
                     value={wisata.photo} 
                     name='photo'
                     placeholder="e.g: gunung.png" />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Street Views</Form.Label>
