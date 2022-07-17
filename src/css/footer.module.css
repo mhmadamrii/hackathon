@@ -1,0 +1,22 @@
+* {
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.footer {
+    height: 300px;
+    display: flex;
+    padding: 30px;
+    justify-content: space-evenly;
+}
+
+.details {
+    width: 300px;
+    border: 1px solid;
+    padding: 10px;
+}
+
+.details ul li a{
+    text-decoration: none;
+}
