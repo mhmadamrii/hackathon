@@ -12,19 +12,19 @@ const Card = () => {
                     <img src={dieng} />
                     <h3>Air Panas</h3>
                     <span>Dieng, Jawa Tengah</span>
-                    <p>lorem ipsum dolor sit ammet</p>
+                    <p>Sebagai negara yang memiliki banyak gunung berapi, Indonesia juga terkenal dengan 'surganya' pemandian air panasnya.</p>
                 </div>
                 <div className={styles.cardImage}>
                     <img src={borobudur} />
                     <h3>Borobudur</h3>
                     <span>Magelang, Jawa Tengah</span>
-                    <p>Deskripsi</p>
+                    <p>Borobudur dibangun dengan gaya Mandala yang mencerminkan alam semesta dalam kepercayaan Buddha</p>
                 </div>
                 <div className={styles.cardImage}>
                     <img src={bali} />
                     <h3>Pure</h3>
                     <span>Tanah Lot, Bali</span>
-                    <p>Deskripsi</p>
+                    <p>Tanah lot adalah objek wisata Bali yang terdapat pura di atas tebing batu karang berwarna hitam.</p>
                 </div>
                 
             </div>

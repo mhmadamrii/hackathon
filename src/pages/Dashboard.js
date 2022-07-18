@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
     let navigate = useNavigate()
     const addWisata = () => {
-        // navigate('/add-wisata')
+        navigate('/add-wisata')
     }
     return (
         <>
             <Navbar />
             <div className={styles.container}>
-            {/* <Button variant="primary" mb='3' onClick={addWisata}>Add Wisata</Button>{' '} */}
+            <Button variant="primary" mb='3' onClick={addWisata}>Add Wisata</Button>{' '}
             <Table striped bordered hover>
             <thead>
                 <tr>

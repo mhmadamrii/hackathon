@@ -8,18 +8,23 @@ import Button from 'react-bootstrap/Button';
 import fakeImg from '../assets/fake1.jpg';
 import fakeImg2 from '../assets/fake2.jpg';
 import Footer from '../components/footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
+    let navigate = useNavigate()
+    const myNavigate = () => {
+        navigate('/explore')
+    }
     document.title = 'Wisata | Homepage'
     return (
         <>
             <Navbar />
             <Container>
                 <Row className={styles.row}>
-                    <Col>
+                    <Col className={styles.rowText}>
                         <h2>Temukan beragam wisata di Indonesia</h2>
                         <p>"Satu-satunya cara untuk bisa menikmati hari-harimu adalah dengan menikmati apa yang kamu kerjakan. Jika kamu mencintai apa yang kamu lakukan, maka ketakutan ketika lepas dari masa liburan tidak akan kamu rasakan tapi justru akan membuat semakin bersemangat."</p>
-                        <Button variant="primary">Explore</Button>
+                        <Button variant="primary" onClick={myNavigate} >Explore</Button>
                     </Col>
                     <Col className={styles.rowImg}>
                         <img src={Bali} alt='image' />

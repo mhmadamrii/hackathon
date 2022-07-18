@@ -117,7 +117,7 @@ const AddWisata = () => {
                     value={wisata.streetView}
                     name='streetView'/>
                 </Form.Group>
-                <Button variant="primary" type="submit">Add Wisata</Button>
+                <Button variant="primary" navigate='/dashboard' type="submit">Add Wisata</Button>
             </Form>
             </div>
         </>

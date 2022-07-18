@@ -30,7 +30,6 @@ const Explore = () => {
                     <div className={styles.cards}>
                         <Card />
                     </div>
-                    
                 </div>
             </div>
         </>

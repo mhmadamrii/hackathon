@@ -7,7 +7,7 @@ import { UserContext } from "./components/context/UserContext";
 import Homepage from './pages/Homepage'
 import Explore from './pages/Explore';
 import Dashboard from "./pages/Dashboard";
-// import AddWisata from "./pages/AddWisata";
+import AddWisata from "./pages/AddWisata";
 
 
 if (localStorage.token) {
@@ -59,7 +59,7 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path='/explore' element={<Explore />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        {/* <Route path='/add-wisata' element={<AddWisata />} /> */}
+        <Route path='/add-wisata' element={<AddWisata />} />
       </Routes>
     </Router>
   );

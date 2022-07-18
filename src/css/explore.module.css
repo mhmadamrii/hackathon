@@ -3,6 +3,7 @@
 }
 
 .main img {
+    animation: slide-in 2000ms;
     width: 800px;
     height: 400px;
     margin: auto;
@@ -15,5 +16,24 @@
     margin: 10px 20px 0 20px;
     padding: 10px;
     justify-content: space-between;
+    animation: slide-up 2000ms;
 }
 
+/* animation */
+@keyframes slide-in {
+    from {
+        transform: translatey(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translatey(100%);
+    }
+    to {
+        transform: translatey(0%);
+    }
+}

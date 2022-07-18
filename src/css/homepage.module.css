@@ -1,18 +1,23 @@
 .row {
     margin: 40px auto !important;
-    /* border: 1px solid; */
     padding: 50px;
+}
+
+.rowText {
+    animation: slide-left 2000ms;
 }
 
 .rowImg {
     /* border: 1px solid red; */
     text-align: end;
     margin: auto;
+    animation: slide-right 2000ms;
 }
 
 .rowImg img {
     width: 400px;
     border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .row button {
@@ -31,11 +36,14 @@
 .highLeft img {
     width: 300px;
     height: 250px;
+    animation: slide-left 2000ms;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .highRight {
     /* border: 1px solid; */
     width: 400px;
+    animation: slide-left 2000ms;
 }
 
 .mainHighlight {
@@ -81,4 +89,25 @@
 
 .desc p {
     text-align: justify;
+}
+
+
+/* animation */
+@keyframes slide-left {
+    from {
+        transform: translatex(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes slide-right {
+    from {
+        transform: translatex(+100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }
