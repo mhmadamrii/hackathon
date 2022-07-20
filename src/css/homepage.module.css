@@ -1,6 +1,7 @@
 .row {
     margin: 40px auto !important;
     padding: 50px;
+    /* border: 1px solid; */
 }
 
 .rowText {
@@ -25,7 +26,7 @@
 }
 
 .details {
-    /* border: 1px solid; */
+    /* border: 1px solid blue; */
     color: black;
 }
 
@@ -65,6 +66,7 @@
     width: 400px;
     text-align: center;
     margin: 20px auto;
+    /* border: 1px solid red; */
 }
 
 .iframe {
@@ -89,6 +91,7 @@
 
 .desc p {
     text-align: justify;
+    /* border: 1px solid red; */
 }
 
 
@@ -109,5 +112,44 @@
     }
     to {
         transform: translateX(0%);
+    }
+}
+
+/* responsivity */
+
+@media (max-width: 480px) {
+    .row {
+        padding: 0;
+    }
+    .rowImg img,.highLeft img {
+        width: 350px;
+        margin: 10px auto;
+        display: block;
+    }
+    .mainHighlight, .highRight, .highLeft {
+        display: block;
+        padding: 0;
+    }
+    .highLeft p, .highRight p {
+        width: 360px;
+        text-align: center;
+        padding: 0;
+    }
+    .super p {
+        width: 360px;
+    }
+    .super {
+        padding: 0;
+    }
+    .desc {
+        display: block;
+        padding: 0;
+    }
+    .descLeft p, .descRight p {
+        width: 350px;
+    }
+    .highLeft h4, .highRight h4 {
+        text-align: center;
+        width: 350px;
     }
 }

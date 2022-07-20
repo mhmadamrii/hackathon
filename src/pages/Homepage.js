@@ -15,6 +15,7 @@ const Homepage = () => {
     const myNavigate = () => {
         navigate('/explore')
     }
+    
     document.title = 'Wisata | Homepage'
     return (
         <>

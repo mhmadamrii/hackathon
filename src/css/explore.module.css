@@ -37,3 +37,20 @@
         transform: translatey(0%);
     }
 }
+
+/* responsivity */
+@media (max-width: 480px) {
+    .main img {
+        width: 350px;
+        height: 200px;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    .explore {
+        display: block;
+        padding: 0;
+    }
+    .cards {
+        overflow: scroll;
+    }
+}
