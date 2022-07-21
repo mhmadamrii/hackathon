@@ -1,7 +1,6 @@
 .row {
     margin: 40px auto !important;
     padding: 50px;
-    /* border: 1px solid; */
 }
 
 .rowText {
@@ -120,6 +119,7 @@
 @media (max-width: 480px) {
     .row {
         padding: 0;
+        margin: 0;
     }
     .rowImg img,.highLeft img {
         width: 350px;
